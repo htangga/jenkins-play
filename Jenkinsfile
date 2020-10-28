@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "https://harbor.unimed.ac.id/repository/myweb"
+    registry = "https://harbor.unimed.ac.id/library/myweb"
     dockerImage = ""
   }
 
@@ -36,7 +36,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "unimed-kubeconfig")
         }
       }
     }

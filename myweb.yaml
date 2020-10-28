@@ -1,4 +1,14 @@
 ---
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJoYXJib3IudW5pbWVkLmFjLmlkIjp7InVzZXJuYW1lIjoiYXV0b21hdGlvbiIsInBhc3N3b3JkIjoiQEF1dG9tYXRpb24yMDIwIiwiZW1haWwiOiJpdGluZnJhQHVuaW1lZC5hYy5pZCIsImF1dGgiOiJZWFYwYjIxaGRHbHZianBBUVhWMGIyMWhkR2x2YmpJd01qQT0ifX19
+kind: Secret
+metadata:
+  name: regcred
+  namespace: default
+type: kubernetes.io/dockerconfigjson
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,10 +26,12 @@ spec:
         app: myweb
     spec:
       containers:
-      - image: https://harbor.unimed.ac.id/repository/myweb:1
+      - image: harbor.unimed.ac.id/repository/myweb:1
         imagePullPolicy: Always
         name: myweb
-
+      imagePullSecrets:
+      - name: regcred
+      
 ---
 apiVersion: v1
 kind: Service
