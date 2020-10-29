@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = 'harbor.unimed.ac.id/library'
+    registry = 'harbor.unimed.ac.id/library/myweb'
     registryCredential = 'harbor'
     dockerImage = ""
   }
