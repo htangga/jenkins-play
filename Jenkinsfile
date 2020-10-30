@@ -2,8 +2,6 @@ pipeline {
 
   environment {
     registry = 'harbor.unimed.ac.id/library/myweb'
-    registryDomain = 'harbor.unimed.ac.id'
-    registryCredential = 'harbor'
     dockerImage = ''
   }
 
@@ -28,7 +26,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( 'registryDomain' , 'registryCredential' ) {
+          docker.withRegistry( 'https://harbor.unimed.ac.id' , 'harbor' ) {
             dockerImage.push()
           }
         }
