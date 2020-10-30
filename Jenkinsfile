@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     registry = 'harbor.unimed.ac.id/library/myweb'
-    registryHost = 'harbor.unimed.ac.id'
+    registryHost = 'https://harbor.unimed.ac.id'
     registryCredentials = 'harbor'
     dockerImage = ''
   }
