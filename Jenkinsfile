@@ -27,7 +27,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( "https://harbor.unimed.ac.id" , "harbor" ) {
+          docker.withRegistry( "https://harbor.unimed.ac.id" , 'registryCredentials' ) {
             dockerImage.push()
           }
         }
